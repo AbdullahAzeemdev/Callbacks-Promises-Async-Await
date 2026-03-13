@@ -28,24 +28,45 @@
 
 // nested callback
 
-//callback hell
+// promise
 
-function getData(dataId, nextDataId) {
-  setTimeout(() => {
-    console.log("data", dataId);
-    if (nextDataId) {
-      nextDataId();
-    }
-  }, 2000);
-}
+const getPromise = () => {
+  return new Promise((resolve, reject) => {
+  console.log("i am a promise");
+  resolve("sucess");
+  // reject("error");
+ });
+};
 
-getData(1, () => {
-    console.log("getting data2......");
-  getData(2, () => {
-    console.log("getting data3......");
-    getData(3, () => {
-      console.log("getting data4......");
-      getData(4);
-    });
+let promise = getPromise();
+promise.then((res) => {
+    console.log("promise resolved" , res );
+  })
+
+  promise.catch((err) => {
+    console.log(" rejected", err);
   });
-});
+
+//callback hell
+// function getData(dataId, nextDataId) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("data", dataId);
+//       resolve("sucess");
+//       if (nextDataId) {
+//         nextDataId();
+//       }
+//     }, 5000);
+//   });
+// }
+
+// getData(1, () => {
+//     console.log("getting data2......");
+//   getData(2, () => {
+//     console.log("getting data3......");
+//     getData(3, () => {
+//       console.log("getting data4......");
+//       getData(4);
+//     });
+//   });
+// });
