@@ -50,39 +50,60 @@
 
 // promisechaining
 
-function asyncfunc(){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => { 
-            console.log("some data1");
-            resolve("sucess");
-        }, 4000);
-    })
+// function asyncfunc1(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => { 
+//             console.log("data1");
+//             resolve("sucess");
+//         }, 4000);
+//     })
+// }
+
+
+// function asyncfunc2(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => { 
+//             console.log("data2");
+//             resolve("sucess");
+//         }, 4000);
+//     })
+// };
+
+// console.log("fetching data1.....");
+// asyncfunc1().then((res) => {
+//     console.log("fetching data2.....");
+// asyncfunc2().then((res) => {});
+// });
+
+
+
+
+
+
+
+
+
+
+// callback hell
+
+function getData(dataId,) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data", dataId);
+      resolve("sucess");
+    }, 5000);
+  });
 }
 
-console.log("start");
-
-let p1 = asyncfunc();
-p1.then((res) => {
+getData(1).then((res) => {
     console.log(res);
+    getData (2).then((res) => {
+        console.log(res);});
 })
 
 
 
 
-
-
-//callback hell
-// function getData(dataId, nextDataId) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       console.log("data", dataId);
-//       resolve("sucess");
-//       if (nextDataId) {
-//         nextDataId();
-//       }
-//     }, 5000);
-//   });
-// }
 
 // getData(1, () => {
 //     console.log("getting data2......");
