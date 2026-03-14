@@ -30,22 +30,46 @@
 
 // promise
 
-const getPromise = () => {
-  return new Promise((resolve, reject) => {
-  console.log("i am a promise");
-  resolve("sucess");
-  // reject("error");
- });
-};
+// const getPromise = () => {
+//   return new Promise((resolve, reject) => {
+//     console.log("i am a promise");
+//     resolve("sucess");
+//     // reject("error");
+//   });
+// };
 
-let promise = getPromise();
-promise.then((res) => {
-    console.log("promise resolved" , res );
-  })
+// let promise = getPromise();
+// promise.then((res) => {
+//   console.log("promise resolved", res);
+// });
 
-  promise.catch((err) => {
-    console.log(" rejected", err);
-  });
+// promise.catch((err) => {
+//   console.log(" rejected", err);
+// });
+
+
+// promisechaining
+
+function asyncfunc(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            console.log("some data1");
+            resolve("sucess");
+        }, 4000);
+    })
+}
+
+console.log("start");
+
+let p1 = asyncfunc();
+p1.then((res) => {
+    console.log(res);
+})
+
+
+
+
+
 
 //callback hell
 // function getData(dataId, nextDataId) {
