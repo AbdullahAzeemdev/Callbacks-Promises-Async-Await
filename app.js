@@ -47,22 +47,20 @@
 //   console.log(" rejected", err);
 // });
 
-
 // promisechaining
 
 // function asyncfunc1(){
 //     return new Promise((resolve, reject) => {
-//         setTimeout(() => { 
+//         setTimeout(() => {
 //             console.log("data1");
 //             resolve("sucess");
 //         }, 4000);
 //     })
 // }
 
-
 // function asyncfunc2(){
 //     return new Promise((resolve, reject) => {
-//         setTimeout(() => { 
+//         setTimeout(() => {
 //             console.log("data2");
 //             resolve("sucess");
 //         }, 4000);
@@ -75,7 +73,7 @@
 // asyncfunc2().then((res) => {});
 // });
 
-function getData(dataId,) {
+function getData(dataId) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("data", dataId);
@@ -83,6 +81,20 @@ function getData(dataId,) {
     }, 3000);
   });
 };
+
+
+// // async-await
+
+(async function () {
+  console.log("getting data1.....");  
+  await getData(1);
+  console.log("getting data2.....");
+  await getData(2);
+  console.log("getting data3.....");
+  await getData(3);
+  console.log("getting data4.....");
+  await getData(4);
+})();
 
 // promise chaining
 // console.log("fetching data1.....");
@@ -99,7 +111,6 @@ function getData(dataId,) {
 //     console.log(res);
 //  });
 
-
 // callback hell
 // getData(1, () => {
 //     console.log("getting data2......");
@@ -111,3 +122,19 @@ function getData(dataId,) {
 //     });
 //   });
 // });
+
+// async await
+
+// function api() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("weather data");
+//       resolve(200);
+//     }, 2000);
+//   });
+// };
+
+// async function getWeather() {
+//   await api();
+//   await api();
+// };
